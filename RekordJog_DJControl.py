@@ -18,7 +18,7 @@ def main():
         midi_inp = mido.open_input(midi_inp_conf)
         if os.name == 'nt':
             midi_out = mido.open_output(midi_out_conf)
-        else
+        else:
             midi_out = mido.open_output("Pioneer DDJ-SX", True)
         
         rekordjog_start_sequence()
