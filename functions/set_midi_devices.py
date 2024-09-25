@@ -25,7 +25,7 @@ def set_midi_devices():
         selected_output = output_devices[output_choice] if 0 <= output_choice < len(output_devices) else None
 
     else:
-        selected_output = 'PIONEER DDJ-SX, True'
+        selected_output = 'notNeededOnUnix'
 
     clear_terminal()
 

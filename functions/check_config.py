@@ -1,5 +1,4 @@
 import configparser
-import mido
 from functions.set_midi_devices import set_midi_devices
 
 def check_config():
