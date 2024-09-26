@@ -103,9 +103,14 @@ def tempo(id):
 def main():
     midi_inp, midi_out = check_config()
     try:
-        with mido.open_input(midi_inp) as midi_inp, mido.open_output(midi_out) as midi_out:
-            rekordjog_start_sequence()
-            wheel_messages_counter = 3
+        midi_inp_conf, midi_out_conf = check_config()
+        midi_inp = mido.open_input(midi_inp_conf)
+        if os.name == 'nt':
+            midi_out = mido.open_output(midi_out_conf)
+        else:
+            midi_out = mido.open_output("Pioneer DDJ-SX", True)
+        rekordjog_start_sequence()
+        wheel_messages_counter = 3
             while True:
                     ims = midi_inp.receive()
                     ims_2b = ims.bytes()[:2]
